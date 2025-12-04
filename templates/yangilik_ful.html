@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Yangiliklar</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family:"Inter",Arial,sans-serif;
+    background:#0f1724;
+    color:#e6eef6;
+    padding:40px 20px;
+    display:flex;
+    justify-content:center;
+}
+.container{
+    width:min(95%,900px);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:2rem;
+    background:linear-gradient(90deg,#6ee7b7,#60a5fa);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.list{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.item{
+    padding:22px 26px;
+    background:rgba(255,255,255,0.03);
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.05);
+    box-shadow:0 8px 22px rgba(2,6,23,0.55);
+    backdrop-filter:blur(6px);
+    transition:.25s;
+}
+.item:hover{
+    transform:translateY(-6px);
+    box-shadow:0 14px 32px rgba(2,6,23,0.7);
+    border-color:rgba(96,165,250,0.2);
+}
+
+.title{
+    font-size:1.4rem;
+    font-weight:600;
+    margin-bottom:10px;
+    color:#eaf6ff;
+}
+
+.meta{
+    font-size:0.95rem;
+    margin-bottom:10px;
+    color:#9aa4b2;
+}
+.meta span{
+    color:#60a5fa;
+    font-weight:600;
+}
+
+.desc{
+    font-size:1.05rem;
+    line-height:1.55;
+    color:#d5e2ee;
+    white-space:pre-line;
+}
+
+.separator{
+    height:6px;
+    width:80px;
+    background:linear-gradient(90deg,#6ee7b7,#60a5fa);
+    border-radius:6px;
+    margin-bottom:14px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Yangiliklar</h1>
+
+    <div class="list">
+        {% for i in yangilik %}
+        <div class="item">
+
+            <div class="title">{{ i.name }}</div>
+
+            <div class="separator"></div>
+
+            <div class="meta">
+                <span>Kategoriya:</span> {{ i.categoy }}<br>
+                <span>Sana:</span> {{ i.qachon }}
+            </div>
+
+            <div class="desc">{{ i.desc }}</div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>

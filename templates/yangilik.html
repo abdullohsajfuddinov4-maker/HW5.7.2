@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Yangiliklar</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            margin: 0;
+            padding: 20px;
+            color: #e5e5e5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .news-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .news-item {
+            background: #1e1e1e;
+            padding: 18px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: 0.2s;
+        }
+
+        .news-item:hover {
+            box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+
+        .news-item a {
+            font-size: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #d6d6d6;
+        }
+
+        .news-item a:hover {
+            color: #4a84ff;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Yangiliklar ro'yxati</h1>
+
+<div class="news-container">
+    {% for i in yangilik %}
+        <div class="news-item">
+            <a href="{% url 'get_yangilik' i.pk %}">
+                {{ i.name }}
+            </a>
+        </div>
+    {% empty %}
+        <p>Yangiliklar mavjud emas.</p>
+    {% endfor %}
+</div>
+
+</body>
+</html>
